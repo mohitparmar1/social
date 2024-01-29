@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
+const verifyToken = async (req, res, next) => {
+  const token = await req.cookies.token;
   console.log(token);
 
   if (!token) {
@@ -13,7 +13,11 @@ const verifyToken = (req, res, next) => {
 
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    next();
+    if (verified) {
+      next();
+    } else {
+      return res.status(401).json({ message: "problem while jwt verifing" });
+    }
   } catch (error) {
     if (error.name === "TokenExpiredError") {
       return res.status(401).json({ message: "Token has expired" });

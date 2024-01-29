@@ -56,6 +56,7 @@ const Login = async (req, res) => {
     process.env.JWT_SECRET,
     { expiresIn: "7d" }
   );
+  console.log("login token :", token);
 
   cookieParser()(req, res, () => {});
   res

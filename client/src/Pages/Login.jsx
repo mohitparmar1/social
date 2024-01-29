@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../utils/apiUrl.js";
 import axios from "axios";
 
 const Login = () => {
@@ -11,10 +12,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/login",
+        `${API_URL}login`,
         {
           email,
           password,
@@ -27,7 +27,7 @@ const Login = () => {
       console.log(data);
       if (res.status === 200) {
         setIsAuth(true);
-        navigate("/home", { replace: true }); // Redirect to the home page on successful login
+        navigate("/home", { replace: true });
       }
 
       alert(res.data.message);
@@ -35,7 +35,7 @@ const Login = () => {
       if (email === "" || password === "")
         return alert("Please fill in all fields.");
       console.error("Error during login:", error);
-      alert("An error occurred during login.");
+      alert("An error occurred during login" + error.message);
     }
   };
 
@@ -73,6 +73,7 @@ const Login = () => {
         <div className="flex flex-row justify-center">
           <p>Don't have an account?</p>
           <button
+            type="submit"
             className="text-blue-500 hover:text-blue-700"
             onClick={() => navigate("/signup")}
           >

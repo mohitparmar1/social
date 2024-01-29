@@ -4,7 +4,7 @@ import axios from "axios";
 const Post = () => {
   const [title, setTitle] = useState("");
   const [caption, setCaption] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   const config = {
     headers: {
@@ -14,12 +14,14 @@ const Post = () => {
 
   const handleSubmit = async () => {
     try {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("caption", caption);
+      formData.append("image", image);
+
       const response = await axios.post(
         "http://localhost:3000/api/upload",
-        {
-          title,
-          caption,
-        },
+        formData,
         config
       );
 
@@ -27,13 +29,14 @@ const Post = () => {
       // Optionally, you can reset the form fields after successful submission
       setTitle("");
       setCaption("");
+      setImage(null);
     } catch (error) {
       console.error("Error creating post:", error.message);
     }
   };
 
   return (
-    <div className="lg:w-full lg:bg-green-200 p-4 lg:flex lg:items-center lg:justify-center">
+    <div className="lg:w-full lg:bg-green-200 md:flex md:justify-center md:items-center p-4 lg:flex md:flex-row lg:items-center lg:justify-center">
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700">Title</label>
@@ -60,8 +63,7 @@ const Post = () => {
         <input
           type="file"
           className="mt-1 p-2 w-full border rounded-md"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          onChange={(e) => setImage(e.target.files[0])}
         />
       </div>
       <button
