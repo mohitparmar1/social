@@ -5,7 +5,7 @@ import Post from "../components/Post";
 import Scroll from "../components/Scroll";
 const Home = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="">
       <Sidebar />
       <Scroll />
     </div>

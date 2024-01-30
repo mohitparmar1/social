@@ -58,8 +58,15 @@ const Login = async (req, res) => {
   console.log("login token :", token);
 
   cookieParser()(req, res, () => {});
+
   res
-    .cookie("token", token, "username", userExist.name, {
+    .cookie("token", token, {
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days in milliseconds
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+    })
+    .cookie("username", userExist.name, {
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days in milliseconds
       httpOnly: true,
       sameSite: "none",

@@ -14,7 +14,7 @@ const corsOptions = {
 router.use(cors(corsOptions));
 
 router.post("/signup", Register);
-router.post("/login", verifyToken, Login);
+router.post("/login", Login);
 
 // protected route
 

@@ -1,8 +1,10 @@
 const express = require("express");
 const multer = require("multer");
+const path = require("path");
 const { Post } = require("../Models/Post");
 
 // Setting up multer
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./public/uploads");
@@ -20,15 +22,16 @@ const addPost = async (req, res) => {
   const { title, caption } = req.body;
   const image = req.file; // Use req.file instead of req.image
 
+  const userName = req.cookies.username;
+
   if (!image) {
     return res.status(400).json({ message: "No image uploaded" });
   }
-  const userName = req.user.name;
-  const post = await new Post({
+  const post = new Post({
     title,
     caption,
     image: image.filename,
-    usernmae: userName, // Assuming you want to save the filename in the database
+    userName, // Assuming you want to save the filename in the database
   });
 
   try {
