@@ -40,7 +40,6 @@ const Login = async (req, res) => {
     return res.status(400).json(result.error);
   }
   const userExist = await User.findOne({ email: loginPayload.email });
-  console.log(process.env.JWT_SECRET);
   if (!userExist) {
     return res.status(400).json({ message: "User does not exist" });
   }
@@ -60,7 +59,7 @@ const Login = async (req, res) => {
 
   cookieParser()(req, res, () => {});
   res
-    .cookie("token", token, {
+    .cookie("token", token, "username", userExist.name, {
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days in milliseconds
       httpOnly: true,
       sameSite: "none",

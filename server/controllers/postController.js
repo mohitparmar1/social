@@ -14,29 +14,26 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage: storage,
-  limits: {
-    fileSize: 1024 * 1024 * 5, // 5MB file size limit
-  },
 }).single("image");
 
 const addPost = async (req, res) => {
   const { title, caption } = req.body;
   const image = req.file; // Use req.file instead of req.image
-  console.log(image);
 
   if (!image) {
     return res.status(400).json({ message: "No image uploaded" });
   }
-
-  const post = new Post({
+  const userName = req.user.name;
+  const post = await new Post({
     title,
     caption,
-    image: image.filename, // Assuming you want to save the filename in the database
+    image: image.filename,
+    usernmae: userName, // Assuming you want to save the filename in the database
   });
 
   try {
     await post.save();
-    res.status(201).json({ message: "Post created" });
+    res.status(201).json({ message: "Post created", post });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -6,12 +6,19 @@ const { addPost, upload, getPosts } = require("../controllers/postController");
 
 const router = express.Router();
 
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+
+router.use(cors(corsOptions));
+
 router.post("/signup", Register);
-router.post("/login", Login);
+router.post("/login", verifyToken, Login);
 
 // protected route
 
-router.post("/upload", upload, addPost);
+router.post("/upload", verifyToken, upload, addPost);
 router.get("/getPosts", getPosts);
 
 module.exports = router;

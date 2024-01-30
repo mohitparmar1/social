@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 const Post = () => {
   const [title, setTitle] = useState("");
   const [caption, setCaption] = useState("");
@@ -36,9 +35,9 @@ const Post = () => {
   };
 
   return (
-    <div className="lg:w-full lg:bg-green-200 md:flex md:justify-center md:items-center p-4 lg:flex md:flex-row lg:items-center lg:justify-center">
+    <div className="lg:w-screen flex pt-10 justify-center flex-col mx-20 border-black lg:bg-green-200 md:flex md:justify-center md:mx-10 md:items-center p-4 lg:flex md:flex-row lg:items-center lg:justify-center lg:flex-col">
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
-      <div className="mb-4">
+      <div className="mb-4 border-x border-y ">
         <label className="block text-sm font-medium text-gray-700">Title</label>
         <input
           type="text"
@@ -49,7 +48,9 @@ const Post = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Body</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Caption
+        </label>
         <textarea
           className="mt-1 p-2 w-full border rounded-md"
           rows="4"
@@ -62,7 +63,7 @@ const Post = () => {
         <label className="block text-sm font-medium text-gray-700">Image</label>
         <input
           type="file"
-          className="mt-1 p-2 w-full border rounded-md"
+          className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>
