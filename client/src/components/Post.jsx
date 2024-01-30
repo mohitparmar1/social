@@ -35,9 +35,9 @@ const Post = () => {
   };
 
   return (
-    <div className="lg:w-screen flex pt-10 justify-center flex-col mx-20 border-black lg:bg-green-200 md:flex md:justify-center md:mx-10 md:items-center p-4 lg:flex md:flex-row lg:items-center lg:justify-center lg:flex-col">
+    <div className="md:flex justify-center md:flex-col md:relative  lg:w-[400px]lg:flex  m-auto lg:flex-col lg:relative mt-5 lg:w-[400px]">
       <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
-      <div className="mb-4 border-x border-y ">
+      <div className="mb-4 ">
         <label className="block text-sm font-medium text-gray-700">Title</label>
         <input
           type="text"

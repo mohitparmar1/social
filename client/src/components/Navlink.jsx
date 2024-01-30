@@ -1,28 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navlink = () => {
   return (
     <div className="flex flex-col items-center justify-center mb-20 text-white gap-4 lg:w-[90%] m-2">
-      <div
+      <Link
+        to="/home"
         className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md lg"
+  hover:bg-zinc-800 w-full rounded-md"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6 mr-3"
+        <div
+          className="flex items-center justify-start px-1 py-2 cursor-pointer
+  hover:bg-zinc-800 w-full rounded-md lg"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-          />
-        </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Home</span>
-      </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6 mr-3"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+          <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+            Home
+          </span>
+        </div>
+      </Link>
 
       <div
         className="flex items-center justify-start px-1 py-2 cursor-pointer
@@ -60,7 +69,9 @@ const Navlink = () => {
           ></line>
         </svg>
 
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Search</span>
+        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+          Search
+        </span>
       </div>
 
       <div
@@ -87,7 +98,7 @@ const Navlink = () => {
             stroke-width="2"
           ></polygon>
           <polygon
-             fillRule="evenodd"
+            fillRule="evenodd"
             points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"
           ></polygon>
           <circle
@@ -101,7 +112,9 @@ const Navlink = () => {
             stroke-width="2"
           ></circle>
         </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Explore</span>
+        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+          Explore
+        </span>
       </div>
       <div
         className="flex items-center justify-start px-1 py-2 cursor-pointer
@@ -158,10 +171,12 @@ const Navlink = () => {
           ></path>
           <path
             d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
-             fillRule="evenodd"
+            fillRule="evenodd"
           ></path>
         </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Reels</span>
+        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+          Reels
+        </span>
       </div>
       <div
         className="flex items-center justify-start px-1 py-2 cursor-pointer
@@ -187,10 +202,12 @@ const Navlink = () => {
           ></path>
           <path
             d="M17.79 10.132a.659.659 0 0 0-.962-.873l-2.556 2.05a.63.63 0 0 1-.758.002L11.06 9.47a1.576 1.576 0 0 0-2.277.42l-2.567 3.98a.659.659 0 0 0 .961.875l2.556-2.049a.63.63 0 0 1 .759-.002l2.452 1.84a1.576 1.576 0 0 0 2.278-.42Z"
-             fillRule="evenodd"
+            fillRule="evenodd"
           ></path>
         </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Message</span>
+        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+          Message
+        </span>
       </div>
       <div
         className="flex items-center justify-start px-1 py-2 cursor-pointer
@@ -213,54 +230,62 @@ const Navlink = () => {
           Notifications
         </span>
       </div>
-      <div
+      <Link
+        to="/create"
         className="flex items-center justify-start px-1 py-2 cursor-pointer
   hover:bg-zinc-800 w-full rounded-md"
       >
-        <svg
-          aria-label="New post"
-          class="x1lliihq x1n2onr6 x5n08af"
-          fill="currentColor"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          className="w-6 h-6 mr-3"
+        <div
+          className="flex items-center justify-start px-1 py-2 cursor-pointer
+  hover:bg-zinc-800 w-full rounded-md"
         >
-          <title>New post</title>
-          <path
-            d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            x1="6.545"
-            x2="17.455"
-            y1="12.001"
-            y2="12.001"
-          ></line>
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            x1="12.003"
-            x2="12.003"
-            y1="6.545"
-            y2="17.455"
-          ></line>
-        </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Create</span>
-      </div>
+          <svg
+            aria-label="New post"
+            class="x1lliihq x1n2onr6 x5n08af"
+            fill="currentColor"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            className="w-6 h-6 mr-3"
+          >
+            <title>New post</title>
+            <path
+              d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            ></path>
+            <line
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x1="6.545"
+              x2="17.455"
+              y1="12.001"
+              y2="12.001"
+            ></line>
+            <line
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              x1="12.003"
+              x2="12.003"
+              y1="6.545"
+              y2="17.455"
+            ></line>
+          </svg>
+          <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+            Create
+          </span>
+        </div>
+      </Link>
       <div
         className="flex items-center justify-start px-1 py-2 cursor-pointer
   hover:bg-zinc-800 w-full rounded-md"
@@ -295,7 +320,9 @@ const Navlink = () => {
             ></path>
           </svg>
         </div>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">Profile</span>
+        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+          Profile
+        </span>
       </div>
     </div>
   );

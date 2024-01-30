@@ -1,7 +1,9 @@
+// Scroll.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 const Scroll = () => {
-  const [Data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -10,21 +12,19 @@ const Scroll = () => {
   const fetchData = async () => {
     try {
       const res = await axios.get("http://localhost:3000/api/getPosts");
-      const data = res.data.posts;
-      setData(data);
+      const fetchedData = res.data.posts;
+      setData(fetchedData);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
-    <div>
-      {Data.map((item, i) => (
-        <div
-          className="md:flex justify-center transition-all delay-300"
-          key={i}
-        >
-          <h1 className="text-black">{item.title}</h1>
-          {item.caption && <p>{item.caption}</p>}
+    <div className="lg:w-[400px] m-auto mt-10 h-60 overflow-y-auto">
+      {data.map((item, i) => (
+        <div className="lg:flex lg:flex-col w-full lg:justify-center transition-all delay-300" key={i}>
+          <div className="text-black w-full rounded-md h-10 bg-slate-400">{item.title}</div>
+          <p>{item.caption}</p>
         </div>
       ))}
     </div>
