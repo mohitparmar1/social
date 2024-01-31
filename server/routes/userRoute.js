@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { Register, Login } = require("../controllers/userController");
 const verifyToken = require("../middlewares/verifyToken");
-const { addPost, upload, getPosts } = require("../controllers/postController");
+const { addPost, upload, getPosts, followers } = require("../controllers/postController");
 
 const router = express.Router();
 
@@ -19,6 +19,7 @@ router.post("/login", Login);
 // protected route
 
 router.post("/upload", verifyToken, upload, addPost);
-router.get("/getPosts", getPosts);
+router.get("/getPosts",verifyToken, getPosts);
+router.put("/followers", verifyToken, followers);
 
 module.exports = router;

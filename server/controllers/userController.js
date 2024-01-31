@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
@@ -11,11 +12,15 @@ const Register = async (req, res) => {
   const registerPayload = req.body;
   const result = RegisterSchema.safeParse(registerPayload);
 
+  const { name, email, password } = registerPayload;
+
   if (!result.success) {
     return res.status(400).json(result.error);
   }
 
-  const useExists = await User.findOne({ email: registerPayload.email });
+  const useExists = await User.findOne({
+    $or: [{ name }, { email }],
+  });
   try {
     if (useExists) {
       return res.status(400).json({ message: "User already exists" });

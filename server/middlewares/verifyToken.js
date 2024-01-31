@@ -2,6 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
+const { User } = require("../Models/User");
 dotenv.config();
 
 const verifyToken = async (req, res, next) => {
@@ -12,7 +13,7 @@ const verifyToken = async (req, res, next) => {
   }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    req.user = await User.findById(decoded.id);
     next();
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -6,24 +6,22 @@ const Navlink = () => {
     <div className="flex flex-col items-center justify-center mb-20 text-white gap-4 lg:w-[90%] m-2">
       <Link
         to="/home"
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <div
-          className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md lg"
+          className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md lg"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="w-6 h-6 mr-3"
+            className="w-6 h-6 mr-3"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
             />
           </svg>
@@ -34,34 +32,32 @@ const Navlink = () => {
       </Link>
 
       <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <svg
           aria-label="Search"
-          class="x1lliihq x1n2onr6 x5n08af"
+          className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
           fill="currentColor"
           height="24"
           role="img"
           viewBox="0 0 24 24"
           width="24"
-          className="w-6 h-6 mr-3"
         >
           <title>Search</title>
           <path
             d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z"
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
           ></path>
           <line
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             x1="16.511"
             x2="22"
             y1="16.511"
@@ -75,122 +71,16 @@ const Navlink = () => {
       </div>
 
       <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
-      >
-        <svg
-          aria-label="Explore"
-          class="x1lliihq x1n2onr6 x5n08af"
-          fill="currentColor"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          className="w-6 h-6 mr-3"
-        >
-          <title>Explore</title>
-          <polygon
-            fill="none"
-            points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></polygon>
-          <polygon
-            fillRule="evenodd"
-            points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"
-          ></polygon>
-          <circle
-            cx="12.001"
-            cy="12.005"
-            fill="none"
-            r="10.5"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></circle>
-        </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
-          Explore
-        </span>
-      </div>
-      <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
-      >
-        <svg
-          aria-label="Reels"
-          class="x1lliihq x1n2onr6 x5n08af"
-          fill="currentColor"
-          role="img"
-          className="w-6 h-6 mr-3"
-          viewBox="0 0 24 24"
-        >
-          <title>Reels</title>
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linejoin="round"
-            stroke-width="2"
-            x1="2.049"
-            x2="21.95"
-            y1="7.002"
-            y2="7.002"
-          ></line>
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            x1="13.504"
-            x2="16.362"
-            y1="2.001"
-            y2="7.002"
-          ></line>
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            x1="7.207"
-            x2="10.002"
-            y1="2.11"
-            y2="7.002"
-          ></line>
-          <path
-            d="M2 12.001v3.449c0 2.849.698 4.006 1.606 4.945.94.908 2.098 1.607 4.946 1.607h6.896c2.848 0 4.006-.699 4.946-1.607.908-.939 1.606-2.096 1.606-4.945V8.552c0-2.848-.698-4.006-1.606-4.945C19.454 2.699 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.546 2 5.704 2 8.552Z"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-          <path
-            d="M9.763 17.664a.908.908 0 0 1-.454-.787V11.63a.909.909 0 0 1 1.364-.788l4.545 2.624a.909.909 0 0 1 0 1.575l-4.545 2.624a.91.91 0 0 1-.91 0Z"
-            fillRule="evenodd"
-          ></path>
-        </svg>
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
-          Reels
-        </span>
-      </div>
-      <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <svg
           aria-label="Messenger"
-          class="x1lliihq x1n2onr6 x5n08af"
+          className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
           fill="currentColor"
           height="24"
           role="img"
           viewBox="0 0 24 24"
           width="24"
-          className="w-6 h-6 mr-3"
         >
           <title>Messenger</title>
           <path
@@ -198,7 +88,7 @@ const Navlink = () => {
             fill="none"
             stroke="currentColor"
             strokeMiterlimit="10"
-            stroke-width="1.739"
+            strokeWidth="1.739"
           ></path>
           <path
             d="M17.79 10.132a.659.659 0 0 0-.962-.873l-2.556 2.05a.63.63 0 0 1-.758.002L11.06 9.47a1.576 1.576 0 0 0-2.277.42l-2.567 3.98a.659.659 0 0 0 .961.875l2.556-2.049a.63.63 0 0 1 .759-.002l2.452 1.84a1.576 1.576 0 0 0 2.278-.42Z"
@@ -210,12 +100,11 @@ const Navlink = () => {
         </span>
       </div>
       <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <svg
           aria-label="Notifications"
-          class="x1lliihq x1n2onr6 x5n08af"
+          className="x1lliihq x1n2onr6 x5n08af"
           fill="currentColor"
           height="24"
           role="img"
@@ -232,16 +121,14 @@ const Navlink = () => {
       </div>
       <Link
         to="/create"
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <div
-          className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+          className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
         >
           <svg
             aria-label="New post"
-            class="x1lliihq x1n2onr6 x5n08af"
+            className="x1lliihq x1n2onr6 x5n08af"
             fill="currentColor"
             height="24"
             role="img"
@@ -254,16 +141,16 @@ const Navlink = () => {
               d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
             ></path>
             <line
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               x1="6.545"
               x2="17.455"
               y1="12.001"
@@ -272,9 +159,9 @@ const Navlink = () => {
             <line
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               x1="12.003"
               x2="12.003"
               y1="6.545"
@@ -287,13 +174,12 @@ const Navlink = () => {
         </div>
       </Link>
       <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer
-  hover:bg-zinc-800 w-full rounded-md"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <div className="bg-black border-x w-6 h-6 border-y rounded-2xl mr-2">
           <svg
             aria-label="Profile"
-            class="x1lliihq x1n2onr6 x5n08af"
+            className="x1lliihq x1n2onr6 x5n08af"
             fill="currentColor"
             height="24"
             role="img"
@@ -306,17 +192,17 @@ const Navlink = () => {
               d="M12 2c3.314 0 6 2.686 6 6 0 3.314-2.686 6-6 6-3.314 0-6-2.686-6-6 0-3.314 2.686-6 6-6Zm0 2a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
             ></path>
             <path
               d="M21.5 21.5c-1.5-1.5-4.5-3-9-3s-7.5 1.5-9 3"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
             ></path>
           </svg>
         </div>

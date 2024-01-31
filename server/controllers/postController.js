@@ -1,6 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const { User } = require("../Models/User");
 const { Post } = require("../Models/Post");
 
 // Setting up multer
@@ -22,8 +23,6 @@ const addPost = async (req, res) => {
   const { title, caption } = req.body;
   const image = req.file; // Use req.file instead of req.image
 
-  const userName = req.cookies.username;
-
   if (!image) {
     return res.status(400).json({ message: "No image uploaded" });
   }
@@ -31,7 +30,7 @@ const addPost = async (req, res) => {
     title,
     caption,
     image: image.filename,
-    userName, // Assuming you want to save the filename in the database
+    $push: { userName: req.user.name },
   });
 
   try {
@@ -51,4 +50,16 @@ const getPosts = async (req, res) => {
   }
 };
 
-module.exports = { upload, addPost, getPosts };
+
+
+const followers = async (req, res) => {
+  User.findOneAndUpdate(
+    { _id: req.user._id },
+    {
+      $push: { followers: req.body.id },
+    }
+  );
+  res.send("follower added");
+};
+
+module.exports = { upload, addPost, getPosts, followers };
