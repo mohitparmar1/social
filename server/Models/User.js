@@ -16,27 +16,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // followers: {
-  //   type: ObjectId,
-  //   ref: "user",
-  // },
-  // following: {
-  //   type: ObjectId,
-  //   ref: "user",
-  // },
+  followers: {
+    type: ObjectId,
+    ref: "User",
+  },
+  following: {
+    type: ObjectId,
+    ref: "User",
+  },
 });
 
-const User = mongoose.model("user", userSchema);
-
-const newUser = new User({
-  name: 1,
-  email: 2,
-  password: 3,
-});
+const User = mongoose.model("User", userSchema);
 
 module.exports = { User };
-
-
-const parentSchema = mongoose.Schema({
-  children: [{ name: String }],
-});

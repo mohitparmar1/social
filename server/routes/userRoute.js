@@ -16,10 +16,11 @@ router.use(cors(corsOptions));
 router.post("/signup", Register);
 router.post("/login", Login);
 
+
+
 // protected route
 
 router.post("/upload", verifyToken, upload, addPost);
 router.get("/getPosts",verifyToken, getPosts);
-router.put("/followers", verifyToken, followers);
 
 module.exports = router;

@@ -30,7 +30,7 @@ const addPost = async (req, res) => {
     title,
     caption,
     image: image.filename,
-    $push: { userName: req.user.name },
+    PostedBy: req.user._id,
   });
 
   try {
@@ -50,16 +50,4 @@ const getPosts = async (req, res) => {
   }
 };
 
-
-
-const followers = async (req, res) => {
-  User.findOneAndUpdate(
-    { _id: req.user._id },
-    {
-      $push: { followers: req.body.id },
-    }
-  );
-  res.send("follower added");
-};
-
-module.exports = { upload, addPost, getPosts, followers };
+module.exports = { upload, addPost, getPosts };

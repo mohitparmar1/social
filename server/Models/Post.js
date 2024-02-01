@@ -9,9 +9,9 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  userName: {
-    ref: "User",
-    type: mongoose.Schema.Types.ObjectId,
+  PostedBy : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'User'
   },
   Likes: {
     type: Number,
