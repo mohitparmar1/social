@@ -35,7 +35,7 @@ const Login = () => {
       if (email === "" || password === "")
         return alert("Please fill in all fields.");
       console.error("Error during login:", error);
-      alert("An error occurred during login" + error.message);
+      alert("An error occurred during login " + error.message);
     }
   };
 
