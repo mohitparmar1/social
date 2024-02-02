@@ -1,5 +1,6 @@
 const express = require("express");
 const multer = require("multer");
+const UploadOnCloudinary = require("../cloudinary");
 const path = require("path");
 const { User } = require("../Models/User");
 const { Post } = require("../Models/Post");
@@ -22,18 +23,21 @@ const upload = multer({
 const addPost = async (req, res) => {
   const { title, caption } = req.body;
   const image = req.file; // Use req.file instead of req.image
-
+  console.log("image", image);
   if (!image) {
     return res.status(400).json({ message: "No image uploaded" });
   }
-  const post = new Post({
-    title,
-    caption,
-    image: image.filename,
-    PostedBy: req.user._id,
-  });
 
   try {
+    const response = await UploadOnCloudinary(image.path);
+    const cloudinaryUrl = response.url;
+    const post = new Post({
+      title,
+      caption,
+      image: cloudinaryUrl,
+      PostedBy: req.user._id,
+    });
+
     await post.save();
     res.status(201).json({ message: "Post created", post });
   } catch (error) {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_URL } from "../utils/apiUrl.js";
 import axios from "axios";
 const Post = () => {
   const [title, setTitle] = useState("");
@@ -18,11 +19,7 @@ const Post = () => {
       formData.append("caption", caption);
       formData.append("image", image);
 
-      const response = await axios.post(
-        "http://localhost:3000/api/upload",
-        formData,
-        config
-      );
+      const response = await axios.post(`${API_URL}upload`, formData, config);
 
       console.log("Post created:", response.data);
       // Optionally, you can reset the form fields after successful submission

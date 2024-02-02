@@ -1,5 +1,6 @@
 // Scroll.jsx
 import { useEffect, useState } from "react";
+import { API_URL } from "../utils/apiUrl";
 import axios from "axios";
 
 const Scroll = () => {
@@ -11,7 +12,7 @@ const Scroll = () => {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/getPosts");
+      const res = await axios.get(`${API_URL}getPosts`);
       const fetchedData = res.data.posts;
       setData(fetchedData);
     } catch (error) {
