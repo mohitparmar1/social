@@ -32,7 +32,7 @@ const Scroll = () => {
           <p>{item.caption}</p>
 
           <img
-            src={`http://localhost:3000/public/uploads/${item.image}`}
+            src={item.image}
             alt="post"
             className="w-full h-96 object-cover object-center rounded-md"
           />

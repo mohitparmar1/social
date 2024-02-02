@@ -23,7 +23,6 @@ const upload = multer({
 const addPost = async (req, res) => {
   const { title, caption } = req.body;
   const image = req.file; // Use req.file instead of req.image
-  console.log("image", image);
   if (!image) {
     return res.status(400).json({ message: "No image uploaded" });
   }
