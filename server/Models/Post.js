@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { User } = require("./User");
 
 const postSchema = new mongoose.Schema({
   title: String,
@@ -9,15 +8,14 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  PostedBy : {
-    type : mongoose.Schema.Types.ObjectId,
-    ref : 'User'
+  PostedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
   Likes: {
     type: Number,
     default: 0,
   },
- 
 });
 
 const Post = mongoose.model("Post", postSchema);

@@ -23,7 +23,7 @@ router.post("/login", Login);
 
 // protected route
 
-router.post("/upload", upload, addPost);
+router.post("/upload", verifyToken, upload.single("image"), addPost);
 router.get("/getPosts", verifyToken, getPosts);
 
 module.exports = router;

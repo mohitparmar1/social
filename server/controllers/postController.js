@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage: storage,
-}).single("image");
+});
 
 const addPost = async (req, res) => {
   const { title, caption } = req.body;
@@ -30,15 +30,14 @@ const addPost = async (req, res) => {
   try {
     const response = await UploadOnCloudinary(image.path);
     const cloudinaryUrl = response.url;
-    const post = new Post({
+    const newPost = Post.create({
       title,
       caption,
       image: cloudinaryUrl,
-      PostedBy: req.user._id,
+      PostedBy: req.user.id,
     });
-
-    await post.save();
-    res.status(201).json({ message: "Post created", post });
+    console.log(newPost);
+    res.status(201).json({ message: "Post created", newPost });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
