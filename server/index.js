@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: "http://127.0.0.1:5173", credentials: true }));
+app.use(cors(process.env.CORS_OPTIONS));
 
 app.use(express.json());
 app.use(cookieParser());
