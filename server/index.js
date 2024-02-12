@@ -14,7 +14,7 @@ const corsOption = {
   credentials: true,
 };
 
-app.use(cors(...process.env.CORS_OPTIONS, (Credentials = true)));
+app.use(cors(corsOption, (Credentials = true)));
 
 app.use(express.json());
 app.use(cookieParser());
