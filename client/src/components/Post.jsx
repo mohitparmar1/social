@@ -9,6 +9,7 @@ const Post = () => {
     headers: {
       "Content-Type": "multipart/form-data",
     },
+    withCredentials: true,
   };
 
   const handleSubmit = async () => {
@@ -18,7 +19,11 @@ const Post = () => {
       formData.append("caption", caption);
       formData.append("image", image);
 
-      const response = await axios.post(`http://localhost:3000/api/upload`, formData, config);
+      const response = await axios.post(
+        `http://localhost:3000/api/upload`,
+        formData,
+        config
+      );
 
       console.log("Post created:", response.data);
       // Optionally, you can reset the form fields after successful submission

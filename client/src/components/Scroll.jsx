@@ -1,4 +1,3 @@
-// Scroll.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -20,6 +19,7 @@ const Scroll = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="lg:w-[400px] lg:absolute lg:top-0 left-[30%] mt-10">
       {data.map((item, i) => (
@@ -28,10 +28,12 @@ const Scroll = () => {
           key={i}
         >
           <div className="text-black w-full rounded-md h-10 bg-slate-400">
+            {"mohit"}
+          </div>
+          <div className="text-black w-full rounded-md h-10 bg-slate-400">
             {item.title}
           </div>
-          <p>{item.caption}</p>
-
+          <div className="bg-red-200">{item.caption}</div>
           <img
             src={item.image}
             alt="post"

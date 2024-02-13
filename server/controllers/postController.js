@@ -36,7 +36,7 @@ const addPost = async (req, res) => {
       image: cloudinaryUrl,
       PostedBy: req.user.id,
     });
-    console.log(newPost);
+    console.log(PostedBy);
     res.status(201).json({ message: "Post created", newPost });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -45,11 +45,10 @@ const addPost = async (req, res) => {
 
 const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find({}, { _id: 0 });
+    const posts = await Post.find({}, { _id: 0 }).populate("PostedBy", "name");
     res.status(200).json({ posts });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
 module.exports = { upload, addPost, getPosts };

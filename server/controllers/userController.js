@@ -58,24 +58,16 @@ const Login = async (req, res) => {
   const token = jwt.sign(
     { id: userExist._id, name: userExist.name },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "1d" }
   );
-  console.log("login token :", token);
 
   cookieParser()(req, res, () => {});
   res
-    .cookie(
-      "token",
-      token,
-      {
-        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      },
-      {
-        httpOnly: true,
-        secure: true,
-        sameSite: "none",
-      }
-    )
+    .cookie("token", token, {
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      sameSite: "none",
+      secure: true,
+    })
     .status(200)
     .json({ message: "Login successful", user: userExist.name, token });
 };
