@@ -17,7 +17,10 @@ const Scroll = () => {
       const fetchedData = res.data.posts;
       setData(fetchedData);
     } catch (error) {
-      console.log(error);
+      if (error.response.status === 401) {
+        alert("Please login to view posts");
+      }
+      console.error("Error fetching posts:", error);
     }
   };
 

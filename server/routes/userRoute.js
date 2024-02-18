@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { Register, Login } = require("../controllers/userController");
+const { Register, Login, Logout } = require("../controllers/userController");
 const verifyToken = require("../middlewares/verifyToken");
 const {
   addPost,
@@ -25,5 +25,6 @@ router.post("/login", Login);
 
 router.post("/upload", verifyToken, upload.single("image"), addPost);
 router.get("/getPosts", verifyToken, getPosts);
+router.get("/logout", Logout);
 
 module.exports = router;

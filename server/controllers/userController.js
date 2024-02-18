@@ -72,4 +72,16 @@ const Login = async (req, res) => {
     .json({ message: "Login successful", user: userExist.name, token });
 };
 
-module.exports = { Register, Login };
+const Logout = (req, res) => {
+  // Clear the token cookie by setting an expiry date in the past
+  res.cookie("token", "", {
+    expires: new Date(0),
+    sameSite: "none",
+    secure: true,
+  });
+
+  // Respond with a success message
+  res.status(200).json({ message: "Logout successful" });
+};
+
+module.exports = { Register, Login, Logout };

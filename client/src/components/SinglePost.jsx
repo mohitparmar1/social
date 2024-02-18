@@ -5,7 +5,6 @@ const SinglePost = ({ data, key }) => {
   const { PostedBy, title, caption, image } = data;
   const name = PostedBy?.name;
   const [like, setLike] = useState(false);
-  console.log(data);
 
   const hadleLike = () => {
     setLike(!like);
@@ -13,7 +12,9 @@ const SinglePost = ({ data, key }) => {
 
   return (
     <div className="lg:flex lg:flex-col lg:w-full md:w-1/2 w-[300px] mx-auto  md:h-full md:justify-center lg:justify-center transition-all delay-300 overflow-auto">
-      <div className="flex items-center justify-start gap-2 my-2">
+      <div
+        className="flex items-center justify-start gap-2 my-2 cursor-pointer"
+      >
         <img
           src="https://tse4.mm.bing.net/th?id=OIP.TctatNGs7RN-Dfc3NZf91AAAAA&pid=Api&P=0&h=180"
           className="w-7 h-7 rounded-full object-cover object-center"

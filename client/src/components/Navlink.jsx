@@ -7,6 +7,27 @@ const Navlink = () => {
   const handleShowProfile = () => {
     setShowProfile(!showProfile);
   };
+  const handleLogout = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/logout", {
+        method: "GET",
+        credentials: "include",
+      });
+      const data = await res.json();
+      console.log(data);
+      if (res.status === 200) {
+        window.location.reload();
+      }
+      // Handle response data or any errors here
+    } catch (error) {
+      console.error("Error during logout:", error);
+      if (error.response.status === 401) {
+        alert("Please login to view posts");
+      }
+      // Handle errors here
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center mb-20 text-white gap-4 lg:w-[90%] m-2">
       <Link
@@ -206,11 +227,18 @@ const Navlink = () => {
           Profile
         </span>
         {showProfile && (
-          <div className="flex flex-col items-center justify-center bg-black w-40 h-40 absolute top-14 right-0 rounded-md">
-            <Link to="/profile" className="text-white">
+          <div className="flex flex-col gap-4  items-center justify-center bg-white mx-w-32 mx-h-32 absolute top-45 left-32 rounded-md">
+            <Link
+              to="/profile"
+              className="text-black hover:bg-zinc-200 py-2 px-2 font-bold rounded-sm"
+            >
               My Profile
             </Link>
-            <Link to="/logout" className="text-white">
+            <Link
+              to=""
+              onClick={handleLogout}
+              className="text-black hover:bg-zinc-200 py-2 px-2 font-bold rounded-sm"
+            >
               Logout
             </Link>
           </div>
