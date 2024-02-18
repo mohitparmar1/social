@@ -36,10 +36,13 @@ const Post = () => {
   };
 
   return (
-    <div className="md:flex justify-center md:flex-col md:relative  lg:w-[400px]lg:flex  m-auto lg:flex-col lg:relative mt-5 lg:w-[400px]">
-      <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
+    <div
+      className="md:flex  justify-center md:flex-col  lg:flex  mx-auto
+     lg:flex-col lg:relative mt-5  w-1/2"
+    >
+      <h2 className="text-2xl font-bold mb-4 text-white">Create a New Post</h2>
       <div className="mb-4 ">
-        <label className="block text-sm font-medium text-gray-700">Title</label>
+        <label className="block text-sm font-medium text-gray-200">Title</label>
         <input
           type="text"
           className="mt-1 p-2 w-full border rounded-md"
@@ -49,7 +52,7 @@ const Post = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-200">
           Caption
         </label>
         <textarea
@@ -61,7 +64,7 @@ const Post = () => {
         ></textarea>
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700">Image</label>
+        <label className="block text-sm font-medium text-gray-200">Image</label>
         <input
           type="file"
           className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"

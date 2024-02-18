@@ -2,15 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navlink = () => {
+  const [showProfile, setShowProfile] = React.useState(false);
+
+  const handleShowProfile = () => {
+    setShowProfile(!showProfile);
+  };
   return (
     <div className="flex flex-col items-center justify-center mb-20 text-white gap-4 lg:w-[90%] m-2">
       <Link
         to="/home"
         className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
-        <div
-          className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md lg"
-        >
+        <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -31,9 +34,7 @@ const Navlink = () => {
         </div>
       </Link>
 
-      <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
-      >
+      <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
         <svg
           aria-label="Search"
           className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
@@ -70,9 +71,7 @@ const Navlink = () => {
         </span>
       </div>
 
-      <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
-      >
+      <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
         <svg
           aria-label="Messenger"
           className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
@@ -99,9 +98,7 @@ const Navlink = () => {
           Message
         </span>
       </div>
-      <div
-        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
-      >
+      <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
         <svg
           aria-label="Notifications"
           className="x1lliihq x1n2onr6 x5n08af"
@@ -123,9 +120,7 @@ const Navlink = () => {
         to="/create"
         className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
-        <div
-          className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
-        >
+        <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
           <svg
             aria-label="New post"
             className="x1lliihq x1n2onr6 x5n08af"
@@ -174,6 +169,7 @@ const Navlink = () => {
         </div>
       </Link>
       <div
+        onClick={handleShowProfile}
         className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
       >
         <div className="bg-black border-x w-6 h-6 border-y rounded-2xl mr-2">
@@ -209,6 +205,16 @@ const Navlink = () => {
         <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
           Profile
         </span>
+        {showProfile && (
+          <div className="flex flex-col items-center justify-center bg-black w-40 h-40 absolute top-14 right-0 rounded-md">
+            <Link to="/profile" className="text-white">
+              My Profile
+            </Link>
+            <Link to="/logout" className="text-white">
+              Logout
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

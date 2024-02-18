@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import SinglePost from "./SinglePost";
 
 const Scroll = () => {
   const [data, setData] = useState([]);
@@ -21,26 +22,12 @@ const Scroll = () => {
   };
 
   return (
-    <div className="lg:w-[400px] lg:absolute lg:top-0 left-[30%] mt-10">
-      {data.map((item, i) => (
-        <div
-          className="lg:flex lg:flex-col w-full lg:justify-center transition-all delay-300"
-          key={i}
-        >
-          <div className="text-black w-full rounded-md h-10 bg-slate-400">
-            {"mohit"}
-          </div>
-          <div className="text-black w-full rounded-md h-10 bg-slate-400">
-            {item.title}
-          </div>
-          <div className="bg-red-200">{item.caption}</div>
-          <img
-            src={item.image}
-            alt="post"
-            className="w-full h-96 object-cover object-center rounded-md"
-          />
-        </div>
-      ))}
+    <div className="lg:w-[400px] lg:absolute lg:top-0 left-[30%] mt-10 h-full overflow-y-auto">
+      <div className="max-h-[600px] md:max-h-[600px] lg:max-h-full overflow-y-auto md:overflow-visible lg:overflow-visible">
+        {data.map((item, i) => (
+          <SinglePost data={item} key={i} />
+        ))}
+      </div>
     </div>
   );
 };
