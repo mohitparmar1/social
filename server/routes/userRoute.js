@@ -25,6 +25,6 @@ router.post("/login", Login);
 
 router.post("/upload", verifyToken, upload.single("image"), addPost);
 router.get("/getPosts", verifyToken, getPosts);
-router.get("/logout", Logout);
+router.get("/logout", verifyToken, Logout);
 
 module.exports = router;
