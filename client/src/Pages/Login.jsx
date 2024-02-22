@@ -3,6 +3,8 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
@@ -13,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/login",
+        `${API_BASE_URL}/login`,
         {
           email,
           password,
@@ -24,6 +26,7 @@ const Login = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin Connection": "keep-alive",
           },
         }
       );

@@ -11,13 +11,6 @@ const {
 
 const router = express.Router();
 
-const corsOptions = {
-  origin: "http://localhost:5173",
-  credentials: true,
-};
-
-router.use(cors(corsOptions));
-
 router.post("/signup", Register);
 router.post("/login", Login);
 

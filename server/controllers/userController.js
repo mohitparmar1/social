@@ -44,32 +44,36 @@ const Login = async (req, res) => {
   if (!result.success) {
     return res.status(400).json(result.error);
   }
-  const userExist = await User.findOne({ email: loginPayload.email });
-  if (!userExist) {
-    return res.status(400).json({ message: "User does not exist" });
-  }
-  const passwordMatch = bcrypt.compareSync(
-    loginPayload.password,
-    userExist.password
-  );
-  if (!passwordMatch) {
-    return res.status(400).json({ message: "Invalid credentials" });
-  }
-  const token = jwt.sign(
-    { id: userExist._id, name: userExist.name },
-    process.env.JWT_SECRET,
-    { expiresIn: "1d" }
-  );
+  try {
+    const userExist = await User.findOne({ email: loginPayload.email });
+    if (!userExist) {
+      return res.status(400).json({ message: "User does not exist" });
+    }
+    const passwordMatch = bcrypt.compareSync(
+      loginPayload.password,
+      userExist.password
+    );
+    if (!passwordMatch) {
+      return res.status(400).json({ message: "Invalid credentials" });
+    }
+    const token = jwt.sign(
+      { id: userExist._id, name: userExist.name },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
 
-  cookieParser()(req, res, () => {});
-  res
-    .cookie("token", token, {
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      sameSite: "none",
-      secure: true,
-    })
-    .status(200)
-    .json({ message: "Login successful", user: userExist.name, token });
+    cookieParser()(req, res, () => {});
+    res
+      .cookie("token", token, {
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        sameSite: "none",
+        secure: true,
+      })
+      .status(200)
+      .json({ message: "Login successful", user: userExist.name, token });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 const Logout = (req, res) => {

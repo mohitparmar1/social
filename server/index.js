@@ -9,17 +9,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-const corsOption = {
-  origin: "http://localhost:5173",
-  credentials: true,
-};
+const corsOptions = process.env.corsOptions;
 
-app.use(cors(corsOption, (Credentials = true)));
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", router);
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send({
     "Health check": "Ok",
   });
