@@ -19,7 +19,11 @@ app.use(cors(corsOption, (Credentials = true)));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api", router);
-
+app.use("/", (req, res) => {
+  res.send({
+    "Health check": "Ok",
+  });
+});
 mongoose.connect(process.env.DB_URL).then(() => {
   console.log("Connected to MongoDB");
 });
