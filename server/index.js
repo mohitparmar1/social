@@ -9,7 +9,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-const corsOptions = process.env.corsOptions;
+const corsOptions = {
+  origin: [
+    "http://127.0.0.1:5173",
+    "*",
+    "https://social-mohitparmar1.vercel.app/",
+  ],
+  credentials: true,
+};
 
 app.use(cors(corsOptions));
 
