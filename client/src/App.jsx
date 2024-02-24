@@ -12,6 +12,7 @@ import "./index.css";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import Create from "./Pages/Create";
+import Search from "./Pages/Search";
 
 const App = () => {
   const { isAuth, handleLogin, handleLogout } = useContext(AuthContext);
@@ -24,6 +25,8 @@ const App = () => {
           element={isAuth ? <Navigate to="/home" replace /> : <Login />}
         />
         <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/create" element={<Create />} />
       </Routes>

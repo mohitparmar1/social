@@ -4,17 +4,17 @@ import SinglePost from "./SinglePost";
 
 const Scroll = () => {
   const [data, setData] = useState([]);
-
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/getPosts`, {
+      const res = await axios.get(`${API_BASE_URL}/getPosts`, {
         withCredentials: true,
       });
-      const fetchedData = res.data.posts;
+      const fetchedData = await res.data.posts;
       setData(fetchedData);
     } catch (error) {
       if (error.response.status === 401) {

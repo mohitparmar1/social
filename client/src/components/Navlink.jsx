@@ -54,43 +54,47 @@ const Navlink = () => {
           </span>
         </div>
       </Link>
+      <Link
+        to="/search"
+        className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md"
+      >
+        <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
+          <svg
+            aria-label="Search"
+            className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
+            fill="currentColor"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <title>Search</title>
+            <path
+              d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            ></path>
+            <line
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              x1="16.511"
+              x2="22"
+              y1="16.511"
+              y2="22"
+            ></line>
+          </svg>
 
-      <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
-        <svg
-          aria-label="Search"
-          className="x1lliihq x1n2onr6 x5n08af w-6 h-6 mr-3"
-          fill="currentColor"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <title>Search</title>
-          <path
-            d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-          ></path>
-          <line
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            x1="16.511"
-            x2="22"
-            y1="16.511"
-            y2="22"
-          ></line>
-        </svg>
-
-        <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
-          Search
-        </span>
-      </div>
+          <span className="lg:flex hidden lg:text-lg  items-center font-semibold md:flex">
+            Search
+          </span>
+        </div>
+      </Link>
 
       <div className="flex items-center justify-start px-1 py-2 cursor-pointer hover:bg-zinc-800 w-full rounded-md">
         <svg

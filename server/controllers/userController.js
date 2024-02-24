@@ -88,4 +88,22 @@ const Logout = (req, res) => {
   res.status(200).json({ message: "Logout successful" });
 };
 
-module.exports = { Register, Login, Logout };
+const Search = async (req, res) => {
+  try {
+    const searchQuery = req.query.q;
+    console.log(searchQuery);
+    if (!searchQuery) {
+      return res.status(400).json({ message: "Search query is required" });
+    }
+    const users = await User.find({
+      username: { searchQuery },
+    });
+    console.log(users);
+    res.status(200).json(users);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: "an error occurred while searching user" });
+  }
+};
+
+module.exports = { Register, Login, Logout, Search };
