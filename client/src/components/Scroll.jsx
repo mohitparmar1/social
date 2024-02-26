@@ -25,11 +25,14 @@ const Scroll = () => {
   };
 
   return (
-    <div className="lg:w-[400px] lg:absolute lg:top-0 left-[30%] mt-10 h-full overflow-y-auto">
-      <div className="max-h-[600px] md:max-h-[600px] lg:max-h-full overflow-y-auto md:overflow-visible lg:overflow-visible">
-        {data.map((item, i) => (
-          <SinglePost data={item} key={i} />
-        ))}
+    // <div className="lg:w-[400px] lg:absolute lg:top-0 left-[30%] mt-10 h-full overflow-y-auto border border-red-500">
+    <div className="w-fit lg:absolute lg:top-0 left-[30%] mt-10 h-full overflow-y-auto">
+      <div className="w-1/2">
+        <div className="max-h-[600px] md:max-h-[600px] lg:max-h-full overflow-y-auto md:overflow-visible lg:overflow-visible">
+          {data.map((item, i) => (
+            <SinglePost data={item} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   );

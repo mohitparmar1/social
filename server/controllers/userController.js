@@ -78,14 +78,16 @@ const Login = async (req, res) => {
 
 const Logout = (req, res) => {
   // Clear the token cookie by setting an expiry date in the past
-  res.cookie("token", "", {
-    expires: new Date(0),
-    sameSite: "none",
-    secure: true,
-  });
+  res
+    .cookie("token", "", {
+      expires: new Date(0),
+      sameSite: "none",
+      secure: true,
+    })
+    .status(200)
+    .json({ message: "Logout successful" });
 
   // Respond with a success message
-  res.status(200).json({ message: "Logout successful" });
 };
 
 const Search = async (req, res) => {
@@ -96,7 +98,7 @@ const Search = async (req, res) => {
       return res.status(400).json({ message: "Search query is required" });
     }
     const users = await User.find({
-      username: { searchQuery },
+      mmusername: { searchQuery },
     });
     console.log(users);
     res.status(200).json(users);
