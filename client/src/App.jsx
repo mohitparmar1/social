@@ -13,6 +13,7 @@ import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import Create from "./Pages/Create";
 import Search from "./Pages/Search";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   const { isAuth, handleLogin, handleLogout } = useContext(AuthContext);
@@ -28,7 +29,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/create" element={<Create />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/create" element={<Create />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
